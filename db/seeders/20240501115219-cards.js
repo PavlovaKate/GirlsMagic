@@ -9,7 +9,8 @@ module.exports = {
         {
           name: "Зена королева войнов",
           price: "10",
-          condition: "ideal",
+          image: "img/zena.jpg",
+          conditionId: 1,
           userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -17,7 +18,8 @@ module.exports = {
         {
           name: "Маг 3 уровня",
           price: "2",
-          condition: "poor",
+          image: "img/fireman.jpg",
+          conditionId: 4,
           userId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),

@@ -17,8 +17,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
-      conditionId: {
+      image: {
         type: Sequelize.TEXT,
+      },
+      conditionId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Conditions",
+          key: "id",
+        },
+        onDelete: "Cascade",
+        onUpdate: "Cascade",
       },
       userId: {
         allowNull: false,

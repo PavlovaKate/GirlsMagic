@@ -2,8 +2,9 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Card extends Model {
-    static associate({ User }) {
+    static associate({ User, Condition }) {
       this.belongsTo(User, { foreignKey: "userId" });
+      this.belongsTo(Condition, { foreignKey: "conditionId" });
     }
   }
   Card.init(
@@ -16,8 +17,17 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.TEXT,
       },
-      condition: {
+      image: {
         type: DataTypes.TEXT,
+      },
+      conditionId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+        },
+        onDelete: "Cascade",
+        onUpdate: "Cascade",
       },
       userId: {
         allowNull: false,
