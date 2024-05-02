@@ -4,7 +4,8 @@
   "description": "## Звонок от заказчика",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch app.js"
+    "dev": "node --watch app.js",
+    "dbr": "  sequelize-cli db:drop &&   sequelize-cli db:create  && npx sequelize-cli db:migrate &&   sequelize-cli db:seed "
   },
   "keywords": [],
   "author": "",
