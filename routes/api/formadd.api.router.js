@@ -3,6 +3,8 @@ const router = require('express').Router();
 // const PostsPage = require('../components/PostsPage');
 const { Card } = require('../../db/models');
 // const PostPage = require('../components/PostPage');
+const multer = require('multer');
+
 
 router.post('/', async (req, res) => {
     try {
