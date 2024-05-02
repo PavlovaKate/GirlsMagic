@@ -18,10 +18,10 @@ function Navbar({ user }) {
           <a href="/">main</a>
         </li>
         <li>
-          <a href="/users">users</a>
+          <a href="/user">user</a>
         </li>
         <li>
-          <a href="/posts">posts</a>
+          <a href="/cards">cards</a>
         </li>
         {user ? (
           <li>
