@@ -7,7 +7,7 @@ function Layout({ title, user, children }) {
       <head>
         <title>{title}</title>
         <link rel="stylesheet" href="/styles/style.css" />
-        <script defer src="/scripts/script.js" />
+        {/* <script defer src="/scripts/script.js" /> */}
         <script defer src="/scripts/auth.js" />
       </head>
       <body>

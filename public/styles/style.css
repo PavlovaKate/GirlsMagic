@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  gap: 45px;
+}
+
+.cardImg {
+  max-width: 300px;
+  max-height: 265px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.cardCard {
+  border-radius: 15px;
+  border: 1px solid rgba(113, 112, 112, 0.326);
+  box-shadow: 5px 3px 1px rgba(150, 149, 149, 0.16);
+  transition: 0.5s;
+}
+.cardCard:hover {
+  box-shadow: 15px 10px 5px rgba(113, 112, 112, 0.546);
+  border-radius: 15px;
+}
+
+.cardImg img {
+  max-width: 300px;
+  object-fit: contain;
+  scale: 1.05;
+  transition: 0.5s;
+}
+
+.cardCard:hover .cardImg img {
+  scale: 1.12;
+}
