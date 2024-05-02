@@ -35,29 +35,29 @@ router.get('/', async (req, res) => {
 //     }
 // });
 
-router.post('/', async (req, res) => {
-    try {
-        // с помощью диструкторизации достаем необходимые параметры
-        const { name, image, price } = req.body;
-        const post = await Card.create({
-            name,
-            image,
-            price,
-            userId: 1
-        });
+// router.post('/', async (req, res) => {
+//     try {
+//         // с помощью диструкторизации достаем необходимые параметры
+//         const { name, image, price } = req.body;
+//         const post = await Card.create({
+//             name,
+//             image,
+//             price,
+//             userId: 1
+//         });
 
-        const card = res.renderComponent(
-            Card,
-            { card },
-            { doctype: false }
-        );
+//         const card = res.renderComponent(
+//             Card,
+//             { card },
+//             { doctype: false }
+//         );
 
-        res.send(card);
+//         res.send(card);
         
-    } catch ({ message }) {
-        res.status(500).json('Ошибочка');
-    }
-});
+//     } catch ({ message }) {
+//         res.status(500).json('Ошибочка');
+//     }
+// });
 
 // router.delete('/:cardId', async (req, res) => {
 //     try {
