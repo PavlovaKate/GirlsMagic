@@ -1,17 +1,16 @@
 const router = require("express").Router();
 
-const cardRouter = require("./card.router");
-
 // view
-const mainViewRouter = require("../routes/views/main.view.router");
-const authViewApiRouter = require("../routes/views/auth.view.router");
+const mainViewRouter = require("./views/main.view.router");
+const authViewApiRouter = require("./views/auth.view.router");
+const cardViewRouter = require("./views/card.view.router");
 
 // api
 const authApiRouter = require("./api/auth.api.router");
 
-router.use("/auth", authViewApiRouter);
 router.use("/", mainViewRouter);
+router.use("/auth", authViewApiRouter);
 router.use("/api/auth", authApiRouter);
-router.use("/cards", cardRouter);
+router.use("/cards", cardViewRouter);
 
 module.exports = router;

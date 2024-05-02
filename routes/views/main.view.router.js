@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
   }
 });
 
-router.get("/exit", (req, res) => {
+router.get("/logout", (req, res) => {
   res.clearCookie("access").clearCookie("refresh").redirect("/");
 });
 
