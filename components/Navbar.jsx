@@ -1,4 +1,4 @@
-const React = require('react');
+const React = require("react");
 
 function Navbar({ user }) {
   return (
@@ -18,7 +18,7 @@ function Navbar({ user }) {
           <a href="/">Главная</a>
         </li>
         <li>
-          <a href="/user">Личный кабинет</a>
+          <a href="/formAdd">Личный кабинет</a>
         </li>
         <li>
           <a href="/cards">Магические карты</a>

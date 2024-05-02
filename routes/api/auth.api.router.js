@@ -23,6 +23,7 @@ router.post("/registration", async (req, res) => {
       email,
       city,
       password: hashPassword,
+      city,
     });
 
     const user = await User.findOne({
