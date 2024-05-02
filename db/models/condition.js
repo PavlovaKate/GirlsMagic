@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Card }) {
       this.hasMany(Card, { foreignKey: "conditionId" });
     }
-    }
   }
   Condition.init(
     {
