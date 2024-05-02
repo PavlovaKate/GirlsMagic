@@ -5,9 +5,9 @@ const {Condition} = require('../../db/models')
 
 router.get('/', async(req,res) =>{
   try {
-    console.log(Condition);
+    // console.log(Condition);
     const cond = await Condition.findAll()
-    console.log(cond);
+    // console.log(cond);
 res.send(res.renderComponent(FormAddCard,{title: 'Form Add',cond}))
 
 

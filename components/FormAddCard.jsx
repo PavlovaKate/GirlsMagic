@@ -5,18 +5,17 @@ function FormAddCard({title,cond}) {
     return (
         <Layout title={title}>
             {/* // прописываем метод */}
-            <form action='/cards' method='post'>
+            <form action='/api/formAdd' method='post' className='FormAddCard'>
                 <input type='text' placeholder='name' name='name' />
-                <input type='text' placeholder='image' name='image' />
+                <input type='file' multiple placeholder='image' name='image' />
                 <input type='text' placeholder='price' name='price' />
-                <select>
-                  {cond.map(el =>{
-                    return <option>{el.name}</option>;
-                  })}
-                    
+                <select name='condition'>
+                    {cond.map(el => {
+                        return <option value={el.id}>{el.name}</option>;
+                    })}
                 </select>
 
-                <button>Add</button>
+                <button type='submit'>Add</button>
             </form>
         </Layout>
     );
