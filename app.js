@@ -3,7 +3,7 @@ require("@babel/register");
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const removeHeaders = require("./middleware/removeHeaders");
 
 const ssr = require("./middleware/ssr");
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(ssr);
 
 app.use(morgan("dev"));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(verifyAccessToken);
 
 app.use("/", indexRouter);

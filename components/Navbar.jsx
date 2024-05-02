@@ -18,8 +18,9 @@ function Navbar({ user }) {
           <a href="/">main</a>
         </li>
         <li>
-          <a href="/user">user</a>
+          <a href="/formAdd">formAdd</a>
         </li>
+
         <li>
           <a href="/cards">cards</a>
         </li>

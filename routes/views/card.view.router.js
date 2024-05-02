@@ -1,18 +1,16 @@
 const router = require('express').Router();
 
 // const Card = require('../components/Card');
-const CardsPage = require('../components/CardsPage');
+const CardsPage = require('../../components/CardsPage');
 // подтягиваем посты из бд
-const { Card } = require('../db/models');
+const { Card } = require('../../db/models');
 
 // const CardsPage = require('../components/PostPage');
 
 router.get('/', async (req, res) => {
     try {
         const cards = await Card.findAll();
-        res.send(
-            res.renderComponent(CardsPage, { cards, title: 'Card Page' })
-        );
+        res.send(res.renderComponent(CardsPage, { cards, title: 'Card Page' }));
     } catch ({ message }) {
         res.status(500).json('Ошибочка');
     }
@@ -35,7 +33,7 @@ router.get('/', async (req, res) => {
 //     }
 // });
 
-// router.post('/', async (req, res) => {
+// router.post('/formAdd', async (req, res) => {
 //     try {
 //         // с помощью диструкторизации достаем необходимые параметры
 //         const { name, image, price } = req.body;
@@ -46,14 +44,9 @@ router.get('/', async (req, res) => {
 //             userId: 1
 //         });
 
-//         const card = res.renderComponent(
-//             Card,
-//             { card },
-//             { doctype: false }
-//         );
+//         const card = res.renderComponent(Card, { card }, { doctype: false });
 
 //         res.send(card);
-        
 //     } catch ({ message }) {
 //         res.status(500).json('Ошибочка');
 //     }

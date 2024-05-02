@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const jwtConfig = require("../config/jwtConfig");
-const generateTokens = require("../utils/authutils");
+const generateTokens = require("../utils/authUtils");
 
 function verifyRefreshToken(req, res, next) {
   try {
@@ -10,7 +10,7 @@ function verifyRefreshToken(req, res, next) {
     const { user } = jwt.verify(refresh, "R");
     // generate new tokens for user
     const { accessToken, refreshToken } = generateTokens({
-      user: { id: user.id, email: user.email, userName: user.userName },
+      user: { id: user.id, email: user.email, name: user.name },
     });
 
     // add user to local

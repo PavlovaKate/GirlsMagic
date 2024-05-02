@@ -6,7 +6,7 @@ const generateTokens = require("../../utils/authUtils");
 
 router.post("/registration", async (req, res) => {
   try {
-    const { userName, email, password } = req.body;
+    const { name, email, password, city } = req.body;
     let userInDb;
 
     userInDb = await User.findOne({ where: { email } });
@@ -19,14 +19,15 @@ router.post("/registration", async (req, res) => {
     const hashPassword = await bcrypt.hash(password, 10);
 
     userInDb = await User.create({
-      userName,
+      name,
       email,
       password: hashPassword,
+      city
     });
 
     const user = await User.findOne({
-      where: { id: userInDb.id },
-      attributes: ["id", "userName", "email"],
+        where: { id: userInDb.id },
+        attributes: ['id', 'name', 'email']
     });
 
     if (user) {
