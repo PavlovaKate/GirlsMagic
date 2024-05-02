@@ -11,9 +11,9 @@ const verifyAccessToken = require("./middleware/veryfiJWT");
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 4000;
 
-const indexRouter = require("./routes/index.router");
+const indexRouter = require("./routers/index.router");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
