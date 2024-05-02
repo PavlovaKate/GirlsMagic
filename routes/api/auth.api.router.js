@@ -21,13 +21,14 @@ router.post("/registration", async (req, res) => {
     userInDb = await User.create({
       name,
       email,
+      city,
       password: hashPassword,
-      city
+      city,
     });
 
     const user = await User.findOne({
-        where: { id: userInDb.id },
-        attributes: ['id', 'name', 'email']
+      where: { id: userInDb.id },
+      attributes: ["id", "name", "email"],
     });
 
     if (user) {
@@ -62,7 +63,7 @@ router.post("/authorization", async (req, res) => {
     if (isDone) {
       const user = await User.findOne({
         where: { id: userInDb.id },
-        attributes: ["id", "userName", "email"],
+        attributes: ["id", "name", "email"],
       });
 
       if (user) {

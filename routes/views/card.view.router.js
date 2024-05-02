@@ -1,71 +1,54 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-// const Card = require('../components/Card');
-const CardsPage = require('../../components/CardsPage');
-// подтягиваем посты из бд
-const { Card } = require('../../db/models');
+const CardsPage = require("../../components/CardsPage");
+const { Card, User, Condition } = require("../../db/models");
+const { Op } = require("sequelize");
 
-// const CardsPage = require('../components/PostPage');
+router.get("/", async (req, res) => {
+  try {
+    const { user } = res.locals;
+    const { city, name } = req.query;
 
-router.get('/', async (req, res) => {
-    try {
-        const cards = await Card.findAll();
-        res.send(res.renderComponent(CardsPage, { cards, title: 'Card Page' }));
-    } catch ({ message }) {
-        res.status(500).json('Ошибочка');
+    console.log(city);
+    let cards;
+    if (city === "all" || !city) {
+      cards = await Card.findAll({
+        include: [{ model: User }, { model: Condition }],
+      });
+
+      res.app.locals.cities = cards;
+    } else {
+      cards = await Card.findAll({
+        include: [{ model: User, where: { city } }, { model: Condition }],
+      });
     }
+
+    if (!name) {
+      cards = await Card.findAll({
+        include: [{ model: User }, { model: Condition }],
+      });
+    } else {
+      cards = await Card.findAll({
+        where: { name: { [Op.iLike]: `%${name}%` } },
+        include: [{ model: User }, { model: Condition }],
+      });
+    }
+
+    console.log();
+
+    const { cities } = res.app.locals.cities;
+
+    res.send(
+      res.renderComponent(CardsPage, {
+        cards,
+        user,
+        cities,
+        title: "Card Page",
+      })
+    );
+  } catch ({ message }) {
+    res.status(500).json("Ошибочка");
+  }
 });
-
-// router.get('/:postId', async (req, res) => {
-//     try {
-//         // что написали в адресе запроса выше, то и достаем , то есть айди картинки
-//         const { postId } = req.params;
-
-//         const post = await Post.findOne({ where: { id: postId } });
-
-//         const html = res.renderComponent(PostPage, {
-//             post,
-//             title: 'Post Page'
-//         });
-//         res.send(html);
-//     } catch ({ message }) {
-//         res.status(500).json('Ошибочка');
-//     }
-// });
-
-// router.post('/formAdd', async (req, res) => {
-//     try {
-//         // с помощью диструкторизации достаем необходимые параметры
-//         const { name, image, price } = req.body;
-//         const post = await Card.create({
-//             name,
-//             image,
-//             price,
-//             userId: 1
-//         });
-
-//         const card = res.renderComponent(Card, { card }, { doctype: false });
-
-//         res.send(card);
-//     } catch ({ message }) {
-//         res.status(500).json('Ошибочка');
-//     }
-// });
-
-// router.delete('/:cardId', async (req, res) => {
-//     try {
-//         const { cardId } = req.params;
-
-//         const result = await Card.destroy({ where: { id: cardId } });
-
-//         if (result > 0) {
-//             res.status(200).json({ message: 'success' });
-//             return;
-//         }
-//         res.status(400).json({ message: 'Не твоя, вот ты и бесишься' });
-//     } catch ({ message }) {
-//         res.status(500).json({ error: message });
-//     }
-// });
 
 module.exports = router;

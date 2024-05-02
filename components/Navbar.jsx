@@ -8,33 +8,37 @@ function Navbar({ user }) {
           {user ? (
             <p>
               {` Привет
-              ${user.userName}`}
+              ${user.name}`}
             </p>
           ) : (
             <p>Пожалуйста зарегестрируйтесь</p>
           )}
         </li>
         <li>
-          <a href="/">main</a>
+          <a href="/">Главная</a>
         </li>
         <li>
-          <a href="/formAdd">formAdd</a>
+          <a href="/formAdd">Личный кабинет</a>
         </li>
-
         <li>
-          <a href="/cards">cards</a>
+          <a href="/cards">Магические карты</a>
         </li>
         {user ? (
-          <li>
-            <a href="/exit">exit</a>
-          </li>
+          <>
+            <li>
+              <a href="/cart">Корзина</a>
+            </li>
+            <li>
+              <a href="/logout">Выйти</a>
+            </li>
+          </>
         ) : (
           <>
             <li>
-              <a href="/auth/registration">registration</a>
+              <a href="/auth/registration">Зарегистрироваться</a>
             </li>
             <li>
-              <a href="/auth/authorization">authorization</a>
+              <a href="/auth/authorization">Войти</a>
             </li>
           </>
         )}
