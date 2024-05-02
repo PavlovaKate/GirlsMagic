@@ -1,6 +1,7 @@
 const React = require("react");
+const Navbar = require("./Navbar");
 
-function Layout({ title, children }) {
+function Layout({ title, user, children }) {
   return (
     <html lang="ru">
       <head>
@@ -9,7 +10,10 @@ function Layout({ title, children }) {
         <script defer src="/scripts/script.js" />
         <script defer src="/scripts/auth.js" />
       </head>
-      <body>{children}</body>
+      <body>
+        <Navbar user={user} />
+        {children}
+      </body>
     </html>
   );
 }
