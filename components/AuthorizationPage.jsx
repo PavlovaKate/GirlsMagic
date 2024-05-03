@@ -1,14 +1,14 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 function AuthorizationPage({ title }) {
   return (
     <Layout title={title}>
-      <h2>Welcome back!</h2>
-      <form className="Authorization">
-        <input type="email" name="email" placeholder="email" />
-        <input type="password" name="password" placeholder="password" />
-        <button type="submit">Submit</button>
+      <h1>С возвращением на наш магический сайт</h1>
+      <form className='Authorization'>
+        <input type='email' name='email' placeholder='Email' required />
+        <input type='password' name='password' placeholder='Пароль' required />
+        <button type='submit'>Войти</button>
       </form>
     </Layout>
   );
