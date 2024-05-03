@@ -7,37 +7,37 @@ module.exports = {
       "Conditions",
       [
         {
-          name: "ideal",
+          name: "старая",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "excellent",
+          name: "новая",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "very good",
+          name: "суперновая",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "good",
+          name: "одинразпользовался",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "fair",
+          name: "оченьстарая",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "poor",
+          name: "сильноновая",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "bad",
+          name: "старейшина",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
