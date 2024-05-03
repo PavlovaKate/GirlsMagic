@@ -7,11 +7,14 @@ function CardItem({ card, user }) {
         <img src={card.image} alt='cardImage' />
       </div>
       <div className='cardCardContent'>
-        <h2>{card.name}</h2>
-        <p>Цена: {card.price} $</p>
-        <p>Состояние: {card.Condition.name}</p>
-        <p>Город: {card.User.city}</p>
-        <p>Описание</p>
+        <div className='cardText'>
+          <h2>{card.name}</h2>
+          <p>Цена: {card.price} $</p>
+          <p>Состояние: {card.Condition.name}</p>
+          <p>Город: {card.User.city}</p>
+          <p>Описание: {card.discription}</p>
+        </div>
+
         <div className='cardCardActions'>
           {user && user.id === card.userId && (
             <>
@@ -23,7 +26,11 @@ function CardItem({ card, user }) {
               </button>
             </>
           )}
-          {user && <button type='button'>Add to cart</button>}
+          {user && (
+            <button type='button' className='add-to-cart'>
+              Add to cart
+            </button>
+          )}
         </div>
       </div>
     </div>

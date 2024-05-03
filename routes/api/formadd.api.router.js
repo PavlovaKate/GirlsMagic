@@ -17,7 +17,7 @@ const upload = multer({ storage });
 router.post('/', upload.single('image'), async (req, res) => {
   try {
     const { user } = res.locals;
-    const { name, price, condition } = req.body;
+    const { name, price, condition, discription } = req.body;
 
     const newFileUrl = `/img/${req.file.originalname}`;
 
@@ -25,6 +25,7 @@ router.post('/', upload.single('image'), async (req, res) => {
       name,
       image: newFileUrl,
       price,
+      discription,
       conditionId: condition,
       userId: user.id,
     });
