@@ -164,3 +164,11 @@ button:hover a {
 .cardCard:hover .cardImg img {
   scale: 1.12;
 }
+
+
+.cat {
+    max-width: 600px;
+    max-height: 6000px;
+    overflow: hidden;
+    border-radius: 15px;
+}
