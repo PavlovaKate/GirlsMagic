@@ -1,20 +1,20 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
 // view
-const mainViewRouter = require("./views/main.view.router");
-const authViewApiRouter = require("./views/auth.view.router");
-const formViewRouter = require("./views/formadd.view.router");
-const cardRouter = require("./views/card.view.router");
+const authViewApiRouter = require('./views/auth.view.router');
+const formViewRouter = require('./views/formadd.view.router');
+const cardViewRouter = require('./views/card.view.router');
 
 // api
-const authApiRouter = require("./api/auth.api.router");
-const formAdd = require("./api/formadd.api.router");
+const authApiRouter = require('./api/auth.api.router');
+const formApiAddRouter = require('./api/formadd.api.router');
+const cardApiRouter = require('./api/card.api.router');
 
-router.use("/auth", authViewApiRouter);
-router.use("/", mainViewRouter);
-router.use("/api/auth", authApiRouter);
-router.use("/cards", cardRouter);
-router.use("/api/formAdd", formAdd);
-router.use("/formAdd", formViewRouter);
+router.use('/', cardViewRouter);
+router.use('/auth', authViewApiRouter);
+router.use('/formAdd', formViewRouter);
+router.use('/api/auth', authApiRouter);
+router.use('/api/cards', cardApiRouter);
+router.use('/api/formAdd', formApiAddRouter);
 
 module.exports = router;

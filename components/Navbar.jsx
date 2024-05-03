@@ -1,4 +1,4 @@
-const React = require("react");
+const React = require('react');
 
 function Navbar({ user }) {
   return (
@@ -15,30 +15,29 @@ function Navbar({ user }) {
           )}
         </li>
         <li>
-          <a href="/">Главная</a>
+          <a href='/'>Магические существа</a>
         </li>
-        <li>
-          <a href="/formAdd">Личный кабинет</a>
-        </li>
-        <li>
-          <a href="/cards">Магические карты</a>
-        </li>
+        {user && (
+          <li>
+            <a href='/formAdd'>Личный кабинет</a>
+          </li>
+        )}
         {user ? (
           <>
             <li>
-              <a href="/cart">Корзина</a>
+              <a href='/cart'>Корзина</a>
             </li>
             <li>
-              <a href="/logout">Выйти</a>
+              <a href='/logout'>Выйти</a>
             </li>
           </>
         ) : (
           <>
             <li>
-              <a href="/auth/registration">Зарегистрироваться</a>
+              <a href='/auth/registration'>Зарегистрироваться</a>
             </li>
             <li>
-              <a href="/auth/authorization">Войти</a>
+              <a href='/auth/authorization'>Войти</a>
             </li>
           </>
         )}

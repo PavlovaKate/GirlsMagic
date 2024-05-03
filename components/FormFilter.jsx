@@ -1,17 +1,17 @@
-const React = require("react");
+const React = require('react');
 
 function FormFilter({ cities }) {
   return (
-    <form action="/cards" method="get">
-      <select name="city">
-        <option value="all" selected>
+    <form action='/' method='get'>
+      <select name='city'>
+        <option value='all' selected>
           All
         </option>
-        {cities.map((card) => (
-          <option value={card.User.city}>{card.User.city}</option>
+        {cities.map((city) => (
+          <option value={city}>{city}</option>
         ))}
       </select>
-      <button type="submit">найти</button>
+      <button type='submit'>найти</button>
     </form>
   );
 }
