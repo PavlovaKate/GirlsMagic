@@ -1,25 +1,21 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-const RegistrationPage = require("../../components/RegistrationPage");
-const AuthorizationPage = require("../../components/AuthorizationPage");
+const RegistrationPage = require('../../components/RegistrationPage');
+const AuthorizationPage = require('../../components/AuthorizationPage');
 
-router.get("/registration", (req, res) => {
+router.get('/registration', (req, res) => {
   try {
-    res.send(
-      res.renderComponent(RegistrationPage, { title: "Registartion Page" })
-    );
+    res.send(res.renderComponent(RegistrationPage, { title: 'Регистрация' }));
   } catch ({ message }) {
-    res.status(500).json("Ошибочка");
+    res.status(500).json('Ошибочка');
   }
 });
 
-router.get("/authorization", (req, res) => {
+router.get('/authorization', (req, res) => {
   try {
-    res.send(
-      res.renderComponent(AuthorizationPage, { title: "Registartion Page" })
-    );
+    res.send(res.renderComponent(AuthorizationPage, { title: 'Вход' }));
   } catch ({ message }) {
-    res.status(500).json("Ошибочка");
+    res.status(500).json('Ошибочка');
   }
 });
 
