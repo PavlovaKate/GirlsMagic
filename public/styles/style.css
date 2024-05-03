@@ -121,11 +121,14 @@ button a {
   transition: 0.5s;
 }
 
-button:hover,
-button:hover a {
+button:hover {
   color: #ce9bda;
   scale: 1.05;
   box-shadow: 5px 3px 1px #ce9bda;
+}
+
+button:hover a {
+  color: #ce9bda;
 }
 
 .container {
@@ -133,6 +136,7 @@ button:hover a {
   flex-wrap: wrap;
   gap: 45px;
   justify-content: space-around;
+  margin: 0 20px 50px;
 }
 
 .cardImg {
@@ -163,4 +167,40 @@ button:hover a {
 
 .cardCard:hover .cardImg img {
   scale: 1.12;
+}
+
+.cardCardContent {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  padding: 15px;
+
+  justify-content: space-between;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cardText p {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 22px;
+  text-align: center;
+}
+
+.cardCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.add-to-cart {
+  width: 100%;
 }

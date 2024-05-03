@@ -7,8 +7,8 @@ function FormUpdateCard({ title, user, card }) {
       <form
         action='/api/cards'
         method='post'
-        className='FormUpdatePost'
-        data-postid={card.id}
+        className='FormUpdateCard'
+        data-cardid={card.id}
       >
         <input type='text' placeholder='name' name='name' value={card.name} />
         <input
@@ -17,6 +17,12 @@ function FormUpdateCard({ title, user, card }) {
           placeholder='image'
           name='image'
           value={card.image}
+        />
+        <input
+          type='text'
+          placeholder='discription'
+          name='discription'
+          value={card.discription}
         />
         <input
           type='text'
@@ -31,7 +37,7 @@ function FormUpdateCard({ title, user, card }) {
           value={card.Condition.name}
         ></input>
 
-        <button type='submit'>Add</button>
+        <button type='submit'>Изменить</button>
       </form>
     </Layout>
   );
