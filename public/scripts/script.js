@@ -1,16 +1,19 @@
 const formAddCard = document.querySelector('.FormAddCard');
 const cardContainer = document.querySelector('.container');
+const formUpdateCard = document.querySelector('.FormUpdateCard');
 
 if (formAddCard) {
   formAddCard.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const { name, image, price, condition, action, method } = e.target;
+    const { name, image, price, condition, discription, action, method } =
+      e.target;
 
     const reqData = new FormData();
 
     reqData.append('name', name.value);
     reqData.append('image', image.files[0]);
     reqData.append('price', price.value);
+    reqData.append('discription', discription.value);
     reqData.append('condition', condition.value);
 
     const res = await fetch(action, {
@@ -43,28 +46,29 @@ if (cardContainer) {
   });
 }
 
-// if (formAddPost) {
-//   formAddPost.addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     const { title, image, twit, action, method } = e.target;
-//     // console.log(title.value, image.value, twit.value, action, method);
+if (formUpdateCard) {
+  formUpdateCard.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const { name, image, price, condition, discription } = e.target;
+    const { cardid } = e.target.dataset;
+    console.log(cardid);
 
-//     const res = await fetch(action, {
-//       // method: 'post'
-//       method,
-//       // говорим о том, в каком формате будем общаться
-//       headers: { 'Content-type': 'application/json' },
-//       body: JSON.stringify({
-//         title: title.value,
-//         image: image.value,
-//         twit: twit.value,
-//       }),
-//     });
+    const reqData = new FormData();
 
-//     const data = await res.json();
-//     if (data.message === 'success') {
-//       postContainer.insertAdjacentHTML('beforeend', data.html);
-//       formAddPost.reset();
-//     }
-//   });
-// }
+    reqData.append('name', name.value);
+    reqData.append('image', image.files[0]);
+    reqData.append('price', price.value);
+    reqData.append('discription', discription.value);
+    reqData.append('condition', condition.value);
+
+    const res = await fetch(`/api/cards/update/${cardid}/upd`, {
+      method: 'put',
+      body: reqData,
+    });
+
+    const data = await res.json();
+    if (data.message === 'success') {
+      window.location.assign('/');
+    }
+  });
+}
