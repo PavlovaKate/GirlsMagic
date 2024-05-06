@@ -72,3 +72,28 @@ if (formUpdateCard) {
     }
   });
 }
+
+if (cardContainer) {
+  cardContainer.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('add-to-cart')) {
+      const card = e.target.closest('.cardCard');
+      const { cardid } = card.dataset;
+
+      const res = await fetch(`/api/addCart/`, {
+        method: 'post',
+        headers: { 'Content-type': 'application/json' },
+        body: JSON.stringify({
+          cardId: cardid,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.message === 'success') {
+        alert('Товар добавлен в корзину');
+      } else {
+        alert('Не удалось добавить');
+      }
+    }
+  });
+}

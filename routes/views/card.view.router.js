@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
         cards,
         user,
         cities,
-        title: 'Card Page',
+        title: 'Магические карточки',
       })
     );
   } catch ({ message }) {
@@ -73,7 +73,7 @@ router.get('/update/:cardId/upd', async (req, res) => {
       res.renderComponent(FormUpdateCard, {
         card,
         user,
-        title: 'update card info',
+        title: 'Обновим карточку',
       })
     );
   } catch ({ message }) {

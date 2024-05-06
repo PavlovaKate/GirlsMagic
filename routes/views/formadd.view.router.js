@@ -1,16 +1,16 @@
-const router = require("express").Router();
-const FormAddCard = require("../../components/FormAddCard");
-const { Condition } = require("../../db/models");
+const router = require('express').Router();
+const FormAddCard = require('../../components/FormAddCard');
+const { Condition } = require('../../db/models');
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const { user } = res.locals;
     const cond = await Condition.findAll();
     res.send(
-      res.renderComponent(FormAddCard, { user, title: "Form Add", cond })
+      res.renderComponent(FormAddCard, { user, title: 'Личный кабинет', cond })
     );
   } catch ({ message }) {
-    res.status(500).json("Ошибочка c формой ввода");
+    res.status(500).json('Ошибочка c формой ввода');
   }
 });
 
