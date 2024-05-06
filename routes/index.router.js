@@ -4,7 +4,9 @@ const router = require('express').Router();
 const authViewApiRouter = require('./views/auth.view.router');
 const formViewRouter = require('./views/formadd.view.router');
 const cardViewRouter = require('./views/card.view.router');
+const pageNotFoundViewRouter = require('./views/pageNotFound.view.router');
 const cartViewRouter = require('./views/cart.view.router');
+
 
 // api
 const authApiRouter = require('./api/auth.api.router');
@@ -20,5 +22,6 @@ router.use('/api/auth', authApiRouter);
 router.use('/api/cards', cardApiRouter);
 router.use('/api/formAdd', formApiAddRouter);
 router.use('/api/addCart/', cartApiouter);
+router.use('*',pageNotFoundViewRouter)
 
 module.exports = router;
